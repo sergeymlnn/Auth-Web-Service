@@ -2,3 +2,4 @@
 venv
 app/__pycache__
 app/tests/__pycache__
+app/tests/api/.pytest_cache
