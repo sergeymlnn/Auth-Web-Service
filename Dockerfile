@@ -20,6 +20,3 @@ RUN addgroup --system app && \
     pip install --no-cache /wheels/* && \
     rm -rf /wheels /tmp
 USER app
-
-ENTRYPOINT ["uvicorn", "main:app", "--workers", "2",  "--host", "0.0.0.0", "--port", "8005"]
-
