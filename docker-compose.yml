@@ -3,6 +3,7 @@ version: '3.9'
 services:
   app:
     image: my_auth_api
+    container_name: my_auth_api
     build: .
     restart: always
     volumes:
