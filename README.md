@@ -12,6 +12,9 @@ Running first test
 ```
 export PYTHONPATH=$PWD
 pytest app/tests/api/test_main.py
+
+# Using docker
+docker exec -it my_auth_api pytest tests/api/test_main.py
 ```
 
 
