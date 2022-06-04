@@ -20,7 +20,11 @@ pytest app/tests/api/test_main.py
 ```
 # Leverages DockerBuildKit
 export DOCKER_BUILDKIT=1
+export APP_PORT=8006
 
 docker build -t my_auth_api .
-docker run -p 8005:8005 --rm my_auth_api
+docker run -p $APP_PORT:$APP_PORT --rm my_auth_api
+
+# Using docker-compose
+docker-compose up app
 ```
