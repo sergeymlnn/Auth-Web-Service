@@ -1,0 +1,12 @@
+**/.git
+**/.gitignore
+**/.vscode
+**/.idea
+**/Dockerfile
+README.md
+LICENSE
+notes.txt
+docker-compose.yml
+**/venv
+**/__pycache__
+**/.pytest_cache
