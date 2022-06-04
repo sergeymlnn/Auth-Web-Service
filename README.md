@@ -13,3 +13,14 @@ Running first test
 export PYTHONPATH=$PWD
 pytest app/tests/api/test_main.py
 ```
+
+
+### Build Docker Image & Run the Container
+
+```
+# Leverages DockerBuildKit
+export DOCKER_BUILDKIT=1
+
+docker build -t my_auth_api .
+docker run -it --rm my_auth_api
+```
