@@ -1,8 +1,8 @@
 import pytest
 from httpx import AsyncClient
 
-from app.main import app
-from app.settings import settings
+from main import app
+from settings import settings
 
 
 @pytest.fixture(scope="function")
