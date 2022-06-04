@@ -22,5 +22,5 @@ pytest app/tests/api/test_main.py
 export DOCKER_BUILDKIT=1
 
 docker build -t my_auth_api .
-docker run -it --rm my_auth_api
+docker run -p 8005:8005 --rm my_auth_api
 ```
