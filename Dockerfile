@@ -1,27 +1,25 @@
 FROM python:3.9-slim as builder
 
-# LABEL stage=builder
-
-WORKDIR /app
-
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-COPY app/requirements.txt .
+COPY requirements.txt /
 
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /wheels -r requirements.txt
 
 
 FROM python:3.9-slim
 
-WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 COPY --from=builder /wheels /wheels
-COPY ./app /app
+
+WORKDIR /app
+COPY app .
 
 RUN addgroup --system app && \
     adduser --system --group app && \
     pip install --no-cache /wheels/* && \
-    rm -rf /wheels /tmp && \
-    rm requirements.txt
+    rm -rf /wheels /tmp
 USER app
+
+ENTRYPOINT ["uvicorn", "main:app", "--workers", "2",  "--host", "0.0.0.0", "--port", "8005"]
+
