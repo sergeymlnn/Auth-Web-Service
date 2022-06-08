@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from jose import jwt, JWTError
 
@@ -21,9 +21,8 @@ def encode_jwt_token(username: str, **kwargs) -> str:
   :param kwargs: optional custom arguments to be added to the payload
   :return: a JWT token, signed for the user
   """
-  current_datetime = datetime.now()
-  token_created_at = int(current_datetime.strftime("%s"))
-  token_expires_at = current_datetime + timedelta(minutes=settings.jwt_token_expiration_period)
+  token_created_at = int(datetime.now().strftime("%s"))
+  token_expires_at = token_created_at + (settings.jwt_token_expiration_period * 60)
   payload = {
     **kwargs,
     "exp": token_expires_at,
