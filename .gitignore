@@ -5,3 +5,5 @@ app/tests/__pycache__
 app/tests/api/.pytest_cache
 app/tests/api/__pycache__
 notes.txt
+app/services/__pycache__
+app/tests/services/__pycache__
